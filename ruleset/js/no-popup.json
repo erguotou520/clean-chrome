@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "site": "\\.*\\.zhihu\\.com\\/?.*",
+      "type": "js",
+      "content": "_watch_add_node('.Modal-closeButton').click()"
+    }
+  ]
+}
