@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import type { RuleSet } from "./src/types"
-import { addRuleSet, getRuleSetStore, removeRuleSet, toggleRuleSet, updateAllRuleSets, updateRuleSet } from "./src/storage"
+import { addRuleSet, getRuleSetStore, removeRuleSet, toggleRuleSet, updateAllRuleSets, updateRuleSet } from "./core/storage"
+import type { RuleSet } from "./core/types"
 
 function IndexPopup() {
   const [ruleSets, setRuleSets] = useState<RuleSet[]>([])
@@ -58,7 +58,7 @@ function IndexPopup() {
   return (
     <div className="p-4 w-[400px]">
       <h2 className="text-xl font-bold mb-4">规则集管理</h2>
-      
+
       <div className="mb-4 flex gap-2">
         <input
           className="flex-1 px-2 py-1 border rounded"

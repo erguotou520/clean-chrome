@@ -18,8 +18,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "~*": [
-        "./*"
+      "@/*": [
+        "./src/*"
       ]
     },
     "baseUrl": "."

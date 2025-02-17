@@ -5,8 +5,9 @@
   "description": "A chrome extension aims to make chrome more clean",
   "author": "erguotou525@gmail.com",
   "scripts": {
-    "dev": "plasmo dev",
     "build": "plasmo build",
+    "dev": "plasmo dev",
+    "format": "biome check --write .",
     "package": "plasmo package"
   },
   "dependencies": {
@@ -14,17 +15,26 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/chrome": "0.0.304",
     "@types/node": "22.13.4",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "plasmo": "0.89.4",
+    "plasmo": "^0.90.3",
     "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "<all_urls>"
+    ],
+    "permissions": [
+      "storage",
+      "scripting",
+      "activeTab"
     ]
   },
-  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
+  "packageManager": "bun@1.1.0"
 }

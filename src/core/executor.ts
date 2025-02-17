@@ -1,5 +1,6 @@
-import type { RuleItem } from './types'
+import { ACTION_INSERT_CSS, ACTION_INSERT_SCRIPT } from './constants'
 import { getRuleSetStore } from './storage'
+import type { RuleItem } from './types'
 
 export async function executeRule(rule: RuleItem): Promise<void> {
   if (rule.type === 'js') {
@@ -10,9 +11,9 @@ export async function executeRule(rule: RuleItem): Promise<void> {
 }
 
 function executeJsRule(content: string): void {
-  try {
-    // 使用Function构造器创建新的函数作用域
-    new Function(`
+  chrome.runtime.sendMessage({
+    type: ACTION_INSERT_SCRIPT,
+    script: `// injected
 function _each(nodes, func) {
   for (var node of nodes) {
     func(node)
@@ -51,30 +52,25 @@ function _watch_add_node(selector) {
     }
   }
 }
-${content}`)()
-  } catch (error) {
-    console.error('执行JS规则失败:', error)
-  }
+${content}`
+  })
 }
 
 function executeCssRule(content: string): void {
-  try {
-    const styleElement = document.createElement('style')
-    styleElement.textContent = content
-    document.head.appendChild(styleElement)
-  } catch (error) {
-    console.error('执行CSS规则失败:', error)
-  }
+  chrome.runtime.sendMessage({
+    type: ACTION_INSERT_CSS,
+    css: content
+  })
 }
 
 export async function executeMatchingRules(): Promise<void> {
   const store = await getRuleSetStore()
   const currentUrl = window.location.href
-  
+
   // 执行匹配的规则
   for (const ruleSet of store.ruleSets) {
     if (!ruleSet.enabled) continue
-    
+
     for (const rule of ruleSet.rules) {
       try {
         const pattern = new RegExp(rule.site)
@@ -86,4 +82,4 @@ export async function executeMatchingRules(): Promise<void> {
       }
     }
   }
-} 
+}

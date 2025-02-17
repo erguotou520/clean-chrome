@@ -4,7 +4,7 @@
     {
       "site": "v2ex\\.com\\/?.*",
       "type": "css",
-      "content": "div:has(.wwads-cn){display:none!important}"
+      "content": "div:has(>.wwads-cn){display:none!important}"
     },
     {
       "site": "295k\\.cc\\/?.*",

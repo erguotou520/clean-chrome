@@ -1,6 +1,6 @@
+import { ACTION_EXECUTE_RULES } from "@/core/constants"
+import { executeMatchingRules } from "@/core/executor"
 import type { PlasmoCSConfig } from "plasmo"
-import { executeMatchingRules } from "./src/executor"
-import { ACTION_EXECUTE_RULES } from "~src/constants"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],

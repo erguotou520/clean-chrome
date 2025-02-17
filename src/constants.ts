@@ -1,2 +1,0 @@
-export const ACTION_EXECUTE_RULES = 'EXECUTE_RULES'
-export const ACTION_GET_STORE = 'GET_STORE'
