@@ -34,7 +34,10 @@
       "storage",
       "scripting",
       "activeTab"
-    ]
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    }
   },
   "packageManager": "bun@1.1.0"
 }

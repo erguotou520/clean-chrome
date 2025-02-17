@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "site": "\\.*\\.zhihu\\.com\\/?.*",
+      "js": "_watch_add_node('.Modal-closeButton').click()"
+    },
+    {
+      "site": "v2ex\\.com\\/?.*",
+      "css": "div:has(>.wwads-cn){display:none!important}"
+    },
+    {
+      "site": "295k\\.cc\\/?.*",
+      "css": "body > strong ~ * {display:none!important}"
+    }
+  ]
+}

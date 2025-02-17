@@ -3,10 +3,11 @@ import { getRuleSetStore } from './storage'
 import type { RuleItem } from './types'
 
 export async function executeRule(rule: RuleItem): Promise<void> {
-  if (rule.type === 'js') {
-    await executeJsRule(rule.content)
-  } else if (rule.type === 'css') {
-    executeCssRule(rule.content)
+  if (rule.js) {
+    await executeJsRule(rule.js)
+  }
+  if (rule.css) {
+    executeCssRule(rule.css)
   }
 }
 

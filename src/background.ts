@@ -57,6 +57,10 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
       target: { tabId },
       func: (script) => {
         new Function(script)()
+        // const scriptElement = document.createElement('script')
+        // scriptElement.textContent = script
+        // document.head.appendChild(scriptElement)
+        // scriptElement.remove()
       },
       args: [message.script]
     })

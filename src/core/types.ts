@@ -1,7 +1,7 @@
 export interface RuleItem {
   site: string
-  type: 'js' | 'css'
-  content: string
+  js?: string
+  css?: string
 }
 
 export interface RemoteRuleSet {
@@ -18,4 +18,4 @@ export interface RuleSet extends RemoteRuleSet {
 export interface RuleSetStore {
   ruleSets: RuleSet[]
   lastUpdateTime?: number
-} 
+}
