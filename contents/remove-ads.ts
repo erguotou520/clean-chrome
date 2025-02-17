@@ -35,6 +35,6 @@ observer.observe(document.body, {
 })
 
 // 当页面卸载时断开观察器连接，释放内存
-window.addEventListener('unload', () => {
-  observer.disconnect()
-}) 
+// window.addEventListener('unload', () => {
+//   observer.disconnect()
+// }) 
